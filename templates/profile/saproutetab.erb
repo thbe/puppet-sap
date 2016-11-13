@@ -1,0 +1,15 @@
+### saproutetab
+#
+# SAP router configuation file
+# Permit or deny traffic on local SAP router
+#
+# managed by Puppet, local changes will be overwritten
+#
+
+### SAP router rule set ###
+<% if @router_rules -%><% @router_rules.each do |rule| -%>
+<%= rule %>
+<% end -%><% end -%>
+
+### ALL to ALL disabled ###
+D  *  *  *  # If nothing match, traffic is denied

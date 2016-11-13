@@ -1,0 +1,11 @@
+### sap-router
+#
+# SAP router configuation file
+#
+# managed by Puppet, local changes will be overwritten
+#
+
+SROPT="-Y 0 -C 2000 -J 4194304 -V 1"
+<% if @router_oss_realm -%>
+REALM=<%= @router_oss_realm %>
+<% end -%>

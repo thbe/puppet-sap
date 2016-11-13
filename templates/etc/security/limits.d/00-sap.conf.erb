@@ -1,0 +1,19 @@
+### 00-sap.conf
+#
+# SAP limits configuation file
+#
+# managed by Puppet, local changes will be overwritten
+#
+
+# SAP settings (OSS note 1496410 + Oracle recommendations for 11g)
+@sapsys    hard    nofile    65537
+@sapsys    soft    nofile    65537
+@dba       hard    nofile    65537
+@dba       soft    nofile    65537
+*          hard    nofile    65537
+*          soft    nofile    65537
+
+@sapsys    hard    nproc     16385
+@sapsys    soft    nproc     4096
+@dba       hard    nproc     16385
+@dba       soft    nproc     4096
