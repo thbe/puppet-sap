@@ -1,5 +1,8 @@
 #sap
 
+[![Build Status](https://travis-ci.org/thbe/puppet-sap.png?branch=master)](https://travis-ci.org/thbe/puppet-sap)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/thbe/sap.svg)](https://forge.puppetlabs.com/thbe/sap)
+
 ####Table of Contents
 
 1. [Overview](#overview)
@@ -26,10 +29,10 @@ products on the Linux operating system are fullfilled on the current node. The
 configuration is based on the corresponding SAP OSS notes describing the necessary
 configuration steps.
 
-Keep in mind, this module is _not_ related in any way to official SAP software
+**Keep in mind, this module is _not_ related in any way to official SAP software
 distribution nor is it supported in any way by official SAP contracts. This is
 my private module to speed up the installation of SAP software in a controlled
-puppetized way, so absolutely no warranty at all!
+puppetized way, so absolutely no warranty at all!**
 
 
 ##Setup
