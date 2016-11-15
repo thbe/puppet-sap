@@ -1,1 +1,1 @@
-include sap_netweaver
+include sap
