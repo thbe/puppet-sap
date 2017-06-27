@@ -1,35 +1,12 @@
 require 'spec_helper'
 
 describe 'sap', :type => :class do
-
-  context 'with defaults for all parameters' do
-    it { should contain_class('sap') }
-  end
-
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) do
         facts
       end
-
-      let(:params) {
-        {
-          :base => true,
-          :base_extended => true,
-          :experimental => true,
-          :ads => true,
-          :bo => true,
-          :cloudconnector => true,
-          :hana => true,
-          :router => true,
-          :router_oss_realm => 'p:CN=sr.domain.tld, OU=0123456789, OU=SAProuter, O=SAP, C=DE',
-          :router_rules => [
-            'P0,1  *  192.168.1.1  3200  password  # SID dispatcher',
-            'P0,1  *  192.168.1.2  3200  password  # SID dispatcher'
-          ],
-          :distro_text => 'Best distribution ever build version 7.2'
-        }
-      }
+    let(:params) { {base: true, base_extended: true, experimental: true, ads: true, bo: true, cloudconnector: true, hana: true, router: true, router_oss_realm: 'p:CN=sr.domain.tld, OU=0123456789, OU=SAProuter, O=SAP, C=DE', router_rules: [ 'P0,1  *  192.168.1.1  3200  password  # SID dispatcher', 'P0,1  *  192.168.1.2  3200  password  # SID dispatcher' ], distro_text: 'Best distribution ever build version 7.2' } }
 
       it { is_expected.to compile.with_all_deps }
 
@@ -193,28 +170,24 @@ describe 'sap', :type => :class do
         when '6'
           it { is_expected.to contain_package('compat-gcc-34').with_ensure('installed') }
           it { is_expected.to contain_package('pdksh').with_ensure('installed') }
-        when '7'
         end
       when 'CentOS'
         case facts[:operatingsystemmajrelease]
         when '6'
           it { is_expected.to contain_package('compat-gcc-34').with_ensure('installed') }
           it { is_expected.to contain_package('pdksh').with_ensure('installed') }
-        when '7'
         end
       when 'Scientific'
         case facts[:operatingsystemmajrelease]
         when '6'
           it { is_expected.to contain_package('compat-gcc-34').with_ensure('installed') }
           it { is_expected.to contain_package('pdksh').with_ensure('installed') }
-        when '7'
         end
       when 'OracleLinux'
         case facts[:operatingsystemmajrelease]
         when '6'
           it { is_expected.to contain_package('compat-gcc-34').with_ensure('installed') }
           it { is_expected.to contain_package('pdksh').with_ensure('installed') }
-        when '7'
         end
       else
         it { is_expected.to contain_warning('The current operating system is not supported!') }
