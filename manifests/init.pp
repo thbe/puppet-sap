@@ -108,10 +108,10 @@ class sap (
 
   # Start workflow
   if $sap::params::linux {
-    class{'sap::install': } ->
-    class{'sap::config': } ~>
-    class{'sap::service': } ->
-    Class['sap']
+    class{ '::sap::install': }
+    -> class{ '::sap::config': }
+    ~> class{ '::sap::service': }
+    -> Class['sap']
   } else {
     warning('The current operating system is not supported!')
   }
