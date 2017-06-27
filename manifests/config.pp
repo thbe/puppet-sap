@@ -12,13 +12,13 @@
 #
 class sap::config {
 
-  include sap::config::common
+  include ::sap::config::common
 
   if $sap::base {
-    include sap::config::base
+    include ::sap::config::base
   }
 
   if $sap::router {
-    include sap::config::router
+    include ::sap::config::router
   }
 }

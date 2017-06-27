@@ -12,39 +12,39 @@
 #
 class sap::install {
 
-  include sap::install::common
+  include ::sap::install::common
 
   if $sap::base {
-    include sap::install::base
+    include ::sap::install::base
   }
 
   if $sap::base_extended {
-    include sap::install::base_extended
+    include ::sap::install::base_extended
   }
 
   if $sap::ads {
-    include sap::install::ads
+    include ::sap::install::ads
   }
 
   if $::operatingsystemmajrelease == '7' {
     if $sap::bo {
-      include sap::install::bo
+      include ::sap::install::bo
     }
 
     if $sap::cloudconnector {
-      include sap::install::cloudconnector
+      include ::sap::install::cloudconnector
     }
 
     if $sap::hana {
-      include sap::install::hana
+      include ::sap::install::hana
     }
   }
 
   if $sap::experimental {
-    include sap::install::experimental
+    include ::sap::install::experimental
 
     if $sap::router {
-      include sap::install::router
+      include ::sap::install::router
     }
   }
 }

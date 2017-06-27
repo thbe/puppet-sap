@@ -19,10 +19,10 @@ class sap::service {
   }
 
   if $sap::cloudconnector {
-    include sap::service::cloudconnector
+    include ::sap::service::cloudconnector
   }
 
   if $sap::router {
-    include sap::service::router
+    include ::sap::service::router
   }
 }
