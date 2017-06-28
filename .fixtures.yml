@@ -1,6 +1,5 @@
 fixtures:
-  repositories:
   forge_modules:
-    stdlib: puppetlabs/stdlib
+    stdlib: "puppetlabs/stdlib"
   symlinks:
     sap: "#{source_dir}"
