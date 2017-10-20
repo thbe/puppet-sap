@@ -6,7 +6,7 @@ describe 'sap' do
 class { 'sap':
   base              => true,
   base_extended     => true,
-  experimental      => true,
+  experimental      => false,
   ads               => true,
   bo                => true,
   cloudconnector    => true,
