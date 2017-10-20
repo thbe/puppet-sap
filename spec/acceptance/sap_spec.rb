@@ -9,7 +9,7 @@ class { 'sap':
   experimental      => false,
   ads               => true,
   bo                => true,
-  cloudconnector    => true,
+  cloudconnector    => false,
   hana              => true,
   router            => false,
   router_oss_realm  => 'p:CN=sr.domain.tld, OU=0123456789, OU=SAProuter, O=SAP, C=DE',
