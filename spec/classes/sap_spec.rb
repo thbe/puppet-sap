@@ -6,7 +6,7 @@ describe 'sap', :type => :class do
       let(:facts) do
         facts
       end
-    let(:params) { {base: true, base_extended: true, experimental: true, ads: true, bo: true, cloudconnector: true, hana: true, router: true, router_oss_realm: 'p:CN=sr.domain.tld, OU=0123456789, OU=SAProuter, O=SAP, C=DE', router_rules: [ 'P0,1  *  192.168.1.1  3200  password  # SID dispatcher', 'P0,1  *  192.168.1.2  3200  password  # SID dispatcher' ], distro_text: 'Best distribution ever build version 7.2' } }
+    let(:params) { {base: true, base_extended: true, experimental: true, ads: true, bo: true, cloudconnector: true, hana: true, router: true, router_oss_realm: 'p:CN=sr.domain.tld, OU=0123456789, OU=SAProuter, O=SAP, C=DE', router_rules: ['P0,1  *  192.168.1.1  3200  password  # SID dispatcher', 'P0,1  *  192.168.1.2  3200  password  # SID dispatcher'], distro_text: 'Best distribution ever build version 7.2' } }
 
       it { is_expected.to compile.with_all_deps }
 
