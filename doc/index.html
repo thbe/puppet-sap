@@ -6,15 +6,15 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.5
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "README";
   relpath = '';
 </script>
@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="nav_wrap">
-      <iframe id="nav" src="class_list.html"></iframe>
+      <iframe id="nav" src="class_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
 
@@ -57,157 +57,197 @@
         <div class="clear"></div>
       </div>
 
-      <iframe id="search_frame" src="class_list.html"></iframe>
+      <div id="content"><div id='filecontents'>
+<h1 id="label-sap">sap</h1>
 
-      <div id="content"><div id='filecontents'><h1>sap</h1>
+<p><a href="https://travis-ci.org/thbe/puppet-sap"><img
+src="https://travis-ci.org/thbe/puppet-sap.png?branch=master"></a> <a
+href="https://forge.puppetlabs.com/thbe/sap"><img
+src="https://img.shields.io/puppetforge/v/thbe/sap.svg"></a></p>
 
-<h4>Table of Contents</h4>
+<h2 id="label-Table+of+Contents">Table of Contents</h2>
+<ul><li>
+<p><a href="#sap">sap</a></p>
+</li><li>
+<p><a href="#table-of-contents">Table of Contents</a></p>
+</li><li>
+<p><a href="#overview">Overview</a></p>
+</li><li>
+<p><a href="#module-description">Module Description</a></p>
+</li><li>
+<p><a href="#setup">Setup</a></p>
+<ul><li>
+<p><a href="#what-sap-affects">What sap affects</a></p>
+</li><li>
+<p><a href="#beginning-with-sap">Beginning with sap</a></p>
+</li></ul>
+</li><li>
+<p><a href="#usage">Usage</a></p>
+<ul><li>
+<p><a href="#i-just-want-sap-whats-the-minimum-i-need">I just want sap, what’s
+the minimum I need</a></p>
+</li><li>
+<p><a href="#i-just-want-abap-stack-java-stack-and-ads-on-target-node">I just
+want ABAP stack, JAVA stack and ADS on target node</a></p>
+</li></ul>
+</li><li>
+<p><a href="#reference">Reference</a></p>
+<ul><li>
+<p><a href="#classes">Classes</a></p>
+</li><li>
+<p><a href="#parameters">Parameters</a></p>
+</li><li>
+<p><a href="#abap">abap</a></p>
+</li><li>
+<p><a href="#java">java</a></p>
+</li><li>
+<p><a href="#ads">ads</a></p>
+</li><li>
+<p><a href="#cloudconnector">cloudconnector</a></p>
+</li><li>
+<p><a href="#router">router</a></p>
+</li><li>
+<p><a href="#experimental">experimental</a></p>
+</li></ul>
+</li><li>
+<p><a href="#limitations">Limitations</a></p>
+</li><li>
+<p><a href="#development">Development</a></p>
+</li></ul>
 
-<ol>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#module-description">Module Description - What the module does and why it is useful</a></li>
-<li><a href="#setup">Setup - The basics of getting started with sap</a>
+<h2 id="label-Overview">Overview</h2>
 
-<ul>
-<li><a href="#what-sap-affects">What sap affects</a></li>
-<li><a href="#setup-requirements">Setup requirements</a></li>
-<li><a href="#beginning-with-sap">Beginning with sap</a></li>
-</ul></li>
-<li><a href="#usage">Usage - Configuration options and additional functionality</a></li>
-<li><a href="#reference">Reference - An under-the-hood peek at what the module is doing and how</a></li>
-<li><a href="#limitations">Limitations - OS compatibility, etc.</a></li>
-<li><a href="#development">Development - Guide for contributing to the module</a></li>
-</ol>
+<p>The sap module provides packages, settings and other requirements for
+installing specific SAP products on this node.</p>
 
-<h2>Overview</h2>
+<h2 id="label-Module+Description">Module Description</h2>
 
-<p>The sap module provides packages, settings and other requirements for installing
-specific SAP products on this node.</p>
+<p>This module takes care that the SAP recommendations for installing specific
+SAP products on the Linux operating system are fullfilled on the current
+node. The configuration is based on the corresponding SAP OSS notes
+describing the necessary configuration steps.</p>
 
-<h2>Module Description</h2>
+<p><strong>Keep in mind, this module is <em>not</em> related in any way to
+official SAP software distribution nor is it supported in any way by
+official SAP contracts. This is my private module to speed up the
+installation of SAP software in a controlled puppetized way, so absolutely
+no warranty at all!</strong></p>
 
-<p>This module takes care that the SAP recommendations for installing specific SAP
-products on the Linux operating system are fullfilled on the current node. The
-configuration is based on the corresponding SAP OSS notes describing the necessary
-configuration steps.</p>
+<h2 id="label-Setup">Setup</h2>
 
-<p>Keep in mind, this module is <em>not</em> related in any way to official SAP software
-distribution nor is it supported in any way by official SAP contracts. This is
-my private module to speed up the installation of SAP software in a controlled
-puppetized way, so absolutely no warranty at all!</p>
+<h3 id="label-What+sap+affects">What sap affects</h3>
+<ul><li>
+<p>local packages</p>
+</li><li>
+<p>local configuration files</p>
+</li><li>
+<p>local service configurations</p>
+</li></ul>
 
-<h2>Setup</h2>
+<h3 id="label-Beginning+with+sap">Beginning with sap</h3>
 
-<h3>What sap affects</h3>
+<p>Include &#39;::sap&#39; is enough to get you up and running if the
+parameters point to proper values. Keep mind that all parameters point
+default to false, so using the module without parameters will not change
+much. If you wish to pass in parameters like which SAP software product
+will be installed on the node you should use something like this:</p>
 
-<ul>
-<li>local packages</li>
-<li>local configuration files</li>
-<li>local service configurations</li>
-</ul>
-
-<h3>Beginning with sap</h3>
-
-<p>Include &#39;::sap&#39; is enough to get you up and running if the parameters point to
-proper values. Keep mind that all parameters point default to false, so using the
-module without parameters will not change much. If you wish to pass in parameters
-like which SAP software product will be installed on the node you should use
-something like this:</p>
-
-<pre class="code puppet"><code class="puppet">class { &#39;::sap&#39;:
+<pre class="code ruby"><code class="ruby">class { &#39;::sap&#39;:
   cloudconnector =&gt; true,
 }
 </code></pre>
 
-<h2>Usage</h2>
+<h2 id="label-Usage">Usage</h2>
 
-<p>All interaction with the sap module can do be done through the main sap class.
-This means you can simply toggle the options in the sap class to get at the full
-functionality.</p>
+<p>All interaction with the sap module can do be done through the main sap
+class. This means you can simply toggle the options in the sap class to get
+at the full functionality.</p>
 
-<h3>I just want sap, what&#39;s the minimum I need?</h3>
+<h3 id="label-I+just+want+sap-2C+what-27s+the+minimum+I+need">I just want sap, what&#39;s the minimum I need</h3>
 
-<pre class="code puppet"><code class="puppet">include &#39;::sap&#39;
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>::sap</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
-<h3>I just want ABAP stack, JAVA stack and ADS on target node.</h3>
+<h3 id="label-I+just+want+ABAP+stack-2C+JAVA+stack+and+ADS+on+target+node">I just want ABAP stack, JAVA stack and ADS on target node</h3>
 
-<pre class="code puppet"><code class="puppet">class { &#39;::sap&#39;:
+<pre class="code ruby"><code class="ruby">class { &#39;::sap&#39;:
   abap =&gt; true,
   java =&gt; true,
   ads  =&gt; true,
 }
 </code></pre>
 
-<h2>Reference</h2>
+<h2 id="label-Reference">Reference</h2>
 
-<h3>Classes</h3>
+<h3 id="label-Classes">Classes</h3>
+<ul><li>
+<p>sap: Main class, includes all the rest.</p>
+</li><li>
+<p>sap::install: Handles the packages.</p>
+</li><li>
+<p>sap::config: Handles the configuration file.</p>
+</li><li>
+<p>sap::service: Handles the alternative service link.</p>
+</li></ul>
 
-<ul>
-<li>sap: Main class, includes all the rest.</li>
-<li>sap::install: Handles the packages.</li>
-<li>sap::config: Handles the configuration file.</li>
-<li>sap::service: Handles the alternative service link.</li>
-</ul>
-
-<h3>Parameters</h3>
+<h3 id="label-Parameters">Parameters</h3>
 
 <p>The following parameters are available in the sap module</p>
 
-<h4><code>abap</code></h4>
+<h4 id="label-abap"><code>abap</code></h4>
 
 <p>Install prerequisites for an ABAP stack.</p>
 
-<h4><code>java</code></h4>
+<h4 id="label-java"><code>java</code></h4>
 
 <p>Install prerequisites for an JAVA stack.</p>
 
-<h4><code>ads</code></h4>
+<h4 id="label-ads"><code>ads</code></h4>
 
 <p>Install prerequisites for an Adobe Document Services stack.</p>
 
-<h4><code>cloudconnector</code></h4>
+<h4 id="label-cloudconnector"><code>cloudconnector</code></h4>
 
 <p>Install prerequisites for the SAP Cloud Connector.</p>
 
-<h4><code>router</code></h4>
+<h4 id="label-router"><code>router</code></h4>
 
 <p>Install prerequisites for the SAP Router.</p>
 
-<h4><code>experimental</code></h4>
+<h4 id="label-experimental"><code>experimental</code></h4>
 
 <p>Use experimental features.</p>
 
-<h2>Limitations</h2>
+<h2 id="label-Limitations">Limitations</h2>
 
 <p>This module has been built on and tested against Puppet 4.0 and higher.</p>
 
 <p>The module has been tested on:</p>
-
-<ul>
-<li>RedHat Enterprise Linux 6/7</li>
-</ul>
+<ul><li>
+<p>RedHat Enterprise Linux 6/7</p>
+</li></ul>
 
 <p>but should work on:</p>
-
-<ul>
-<li>CentOS 6/7</li>
-<li>Oracle Enterprise Linux 6/7</li>
-<li>Scientific Linux 6/7</li>
-</ul>
+<ul><li>
+<p>CentOS 6/7</p>
+</li><li>
+<p>Oracle Enterprise Linux 6/7</p>
+</li><li>
+<p>Scientific Linux 6/7</p>
+</li></ul>
 
 <p>too. Testing on other platforms has been light and cannot be guaranteed.</p>
 
-<h2>Development</h2>
+<h2 id="label-Development">Development</h2>
 
-<p>If you like to add or improve this module, feel free to fork the module and send
-me a merge request with the modification.</p>
+<p>If you like to add or improve this module, feel free to fork the module and
+send me a merge request with the modification.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Nov 11 14:47:19 2016 by
+  Generated on Sun Oct 18 14:22:18 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.3.1).
+  0.9.25 (ruby-2.5.8).
 </div>
 
     </div>
